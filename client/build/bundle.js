@@ -84,7 +84,7 @@ var requestComplete = function() {
 };
 
 var app = function(){
-  var url = "/players"
+  var url = "/players";
   makeRequest(url, requestComplete);
 };
 
