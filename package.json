@@ -1,7 +1,6 @@
 {
-  "name": "my_new_project",
+  "name": "arsenal_players_api",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -18,5 +17,6 @@
   "devDependencies": {
     "mocha": "^4.0.1",
     "webpack": "^3.10.0"
-  }
+  },
+  "description": ""
 }
