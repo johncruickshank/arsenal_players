@@ -10,7 +10,7 @@ var makeRequest = function(url, callback){
 var requestComplete = function() {
   if (this.status !== 200) return;
   var playerString = this.responseText;
-  var player = JSON.parse(quoteString);
+  var player = JSON.parse(playerString);
   var UI = new PlayerView(player);
 };
 

@@ -6,11 +6,11 @@ var PlayerView = function(player){
     render: function(player){
       
       console.log(player);
-      player.forEach( function(stat){
+      player.forEach( function(info){
         var li = document.createElement('li');
         var text = document.createElement('p');
         var ul = document.getElementById("player");
-        text.innerText = stat.name + ": " + '"' + stat.stat + '"';
+        text.innerText = info.number + ". " + info.name + ": " + info.position;
         li.appendChild(text);
         ul.appendChild(li);
       })

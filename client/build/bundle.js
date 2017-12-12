@@ -79,7 +79,7 @@ var makeRequest = function(url, callback){
 var requestComplete = function() {
   if (this.status !== 200) return;
   var playerString = this.responseText;
-  var player = JSON.parse(quoteString);
+  var player = JSON.parse(playerString);
   var UI = new PlayerView(player);
 };
 
@@ -103,11 +103,11 @@ var PlayerView = function(player){
     render: function(player){
       
       console.log(player);
-      player.forEach( function(stat){
+      player.forEach( function(info){
         var li = document.createElement('li');
         var text = document.createElement('p');
         var ul = document.getElementById("player");
-        text.innerText = stat.name + ": " + '"' + stat.stat + '"';
+        text.innerText = info.number + ". " + info.name + ": " + info.position;
         li.appendChild(text);
         ul.appendChild(li);
       })
