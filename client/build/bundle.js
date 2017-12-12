@@ -65,12 +65,56 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var PlayerView = __webpack_require__(1);
+
+var makeRequest = function(url, callback){
+  var request = new XMLHttpRequest();
+  request.open("GET", url);
+  request.addEventListener("load", callback);
+  request.send();
+};
+
+var requestComplete = function() {
+  if (this.status !== 200) return;
+  var playerString = this.responseText;
+  var player = JSON.parse(quoteString);
+  var UI = new PlayerView(player);
+};
+
+var app = function(){
+  var url = "/players"
+  makeRequest(url, requestComplete);
+};
+
+window.addEventListener("load", app);
+
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports) {
 
-window.addEventListener("load", function(){
-	alert("Loaded!");
-});
-
+var PlayerView = function(player){
+    this.render(player);
+  }
+  
+  PlayerView.prototype = {
+    render: function(player){
+      
+      console.log(player);
+      player.forEach( function(stat){
+        var li = document.createElement('li');
+        var text = document.createElement('p');
+        var ul = document.getElementById("player");
+        text.innerText = stat.name + ": " + '"' + stat.stat + '"';
+        li.appendChild(text);
+        ul.appendChild(li);
+      })
+    }
+  }
+  
+   module.exports = PlayerView;
 
 /***/ })
 /******/ ]);
